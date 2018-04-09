@@ -62,6 +62,7 @@ app.get("/scrape", function(req, res) {
     var $ = cheerio.load(response.data);
 
     // Now, we grab every h2 within an article tag, and do the following:
+    // Not grabbing this stuff or looking it up at all
     $("h3 ").each(function(i, element) {
       // Save an empty result object
       var result = {};
@@ -105,7 +106,7 @@ app.get("/articles", function(req, res) {
   });
 });
 
-// Route for grabbing a specific Article by id, populate it with it's note
+// Route for grabbing a specific Article by id, populate it with its note
 app.get("/articles/:id", function(req, res) {
   // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
   db.Article.findOne({ _id: req.params.id })
