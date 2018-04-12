@@ -13,7 +13,7 @@ var exphbs = require('express-handlebars');
 // Require all models
 var db = require("./models");
 
-var PORT = 1337 | process.env.PORT;
+var PORT = process.env.PORT || 1337;
 
 // Initialize Express
 var app = express();
